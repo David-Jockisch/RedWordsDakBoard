@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Word Display</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #randomWord {
+            color: Red;
+            font-size: 20em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: Green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="randomWord"></div>
+    <button onclick="refreshWord()">New Word</button>
+
+    <script>
+        // Updated list of words
+        const words = ["will", "of", "was", "and", "a", "the", "is", "on", "to", "for", "I", "like", "go"];
+
+        // Function to get a random word
+        function getRandomWord() {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            return words[randomIndex];
+        }
+
+        // Function to display a random word
+        function displayRandomWord() {
+            const randomWordElement = document.getElementById("randomWord");
+            randomWordElement.textContent = getRandomWord();
+        }
+
+        // Display a random word on page load
+        displayRandomWord();
+
+        // Function to refresh the word
+        function refreshWord() {
+            displayRandomWord();
+        }
+    </script>
+</body>
+</html>
