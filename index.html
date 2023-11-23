@@ -51,9 +51,9 @@
       document.getElementById("word-container").style.color = randomColor;
     }
 
-    // Function to refresh the word every 10 seconds
-    function refreshWord() {
-      changeWord();
+    // Function to refresh the entire page every 10 seconds
+    function refreshPage() {
+      location.reload(true);
     }
 
     // Call the changeWord function on page load
@@ -62,8 +62,8 @@
     // Set up a click event listener to change the word on click
     document.getElementById("word-container").addEventListener("click", changeWord);
 
-    // Set up an interval to refresh the word every 10 seconds (10000 milliseconds)
-    setInterval(refreshWord, 10000);
+    // Set up an interval to refresh the entire page every 10 seconds (10000 milliseconds)
+    setInterval(refreshPage, 10000);
   </script>
 </body>
 </html>
