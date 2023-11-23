@@ -15,19 +15,19 @@
       background-color: Black;
     }
 
-    .word-container {
+    #word-container {
       font-size: 7em;
-      cursor: pointer;
       color: white; /* Set initial color */
+      user-select: none; /* Prevent text selection */
     }
   </style>
 </head>
 <body>
-  <div class="word-container" onclick="changeWord()">Click me to change the word!</div>
+  <div id="word-container"></div>
 
   <script>
     // Array of words
-    var words = ["will", "of", "was", "and", "a", "the", "is", "on", "to", "for", "I", "like", "go" ];
+    var words = ["will", "of", "was", "and", "a", "the", "is", "on", "to", "for", "I", "like", "go"];
 
     // Array of specified colors
     var specifiedColors = ["blue", "red", "green", "yellow", "saddlebrown", "darkorange", "white"];
@@ -47,9 +47,15 @@
       var randomColor = specifiedColors[randomColorIndex];
       
       // Display the random word and set the text color
-      document.querySelector(".word-container").innerHTML = randomWord;
-      document.querySelector(".word-container").style.color = randomColor;
+      document.getElementById("word-container").innerHTML = randomWord;
+      document.getElementById("word-container").style.color = randomColor;
     }
+
+    // Call the changeWord function on page load
+    window.onload = changeWord;
+    
+    // Set up a click event listener to change the word on click
+    document.getElementById("word-container").addEventListener("click", changeWord);
   </script>
 </body>
 </html>
