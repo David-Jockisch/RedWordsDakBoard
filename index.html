@@ -51,11 +51,19 @@
       document.getElementById("word-container").style.color = randomColor;
     }
 
+    // Function to refresh the word every 10 seconds
+    function refreshWord() {
+      changeWord();
+    }
+
     // Call the changeWord function on page load
     window.onload = changeWord;
-    
+
     // Set up a click event listener to change the word on click
     document.getElementById("word-container").addEventListener("click", changeWord);
+
+    // Set up an interval to refresh the word every 10 seconds (10000 milliseconds)
+    setInterval(refreshWord, 10000);
   </script>
 </body>
 </html>
